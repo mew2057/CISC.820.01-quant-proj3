@@ -1,27 +1,18 @@
-function [] = project()
-dataset = sample_uniform(100,0,1);
-a = zeros(10);
-b = zeros(10);
+function [percentages] = project(N, num_samples)
+functs = zeros(10,1);
 
-true_min = min(dataset);
-
-for i=1:10
-    [a(i), b(i)] = ci(dataset,i);
+for sample=1:num_samples
+    for i=1:10
+        % Generate the dataset
+        dataset = sample_uniform(N,0,1);
+        true_min = min(dataset);
+        [a, b] = ci(dataset,i);
+        if a <= true_min && b >= true_min
+            functs(i) = functs(i) + 1;
+        end
+    end
 end
 
+percentages = functs/num_samples;
 
-%true min less than A(n) or B(n) sample a bunch of them.
-
-disp( true_min );
-
-for i=1:10
-    min_good = a(i) <= true_min && b(i) >= true_min ;
-    disp("ci: " + a(i) + " <-> " + b(i) + "; min_good: " + min_good);    
-    
-    
-
-
-
-
-end
-
+%disp(percentages);
