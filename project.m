@@ -9,6 +9,9 @@ for i = 1:num_Ns
     disp("==============================================");
     disp("N = " + N_list(i) + " Sample = " + num_samples);
     disp("----------------------------------------------");
+    % Need to improve the dataset generation for testing the data, right
+    % now I'm just using a sample uniform, we need a better dataset
+    % generator.
     project_test_N(N_list(i),num_samples)
     disp("++++++++++++++++++++++++++++++++++++++++++++++");
 
