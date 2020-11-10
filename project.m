@@ -7,12 +7,19 @@ num_Ns = size(N_list,2);
 
 for i = 1:num_Ns
     disp("==============================================");
-    disp("N = " + N_list(i) + " Sample = " + num_samples);
+    disp("N = " + N_list(i) + " Sample = " + num_samples + " Uniform Sample (-1000,1000) ");
     disp("----------------------------------------------");
-    % Need to improve the dataset generation for testing the data, right
-    % now I'm just using a sample uniform, we need a better dataset
-    % generator.
-    project_test_N(N_list(i),num_samples)
+    project_test_N(N_list(i),num_samples,sample_uniform(N_list(i),-1000,1000))
+    disp("++++++++++++++++++++++++++++++++++++++++++++++");
+    
+    disp("N = " + N_list(i) + " Sample = " + num_samples + " Normal Sample (sig=100, mu=0)");
+    disp("----------------------------------------------");
+    project_test_N(N_list(i),num_samples,sample_normal(N_list(i),100, 0))
+    disp("++++++++++++++++++++++++++++++++++++++++++++++");
+    
+    disp("N = " + N_list(i) + " Sample = " + num_samples + " Bernoulli Sample (theta=.5)");
+    disp("----------------------------------------------");
+    project_test_N(N_list(i),num_samples,sample_bernoulli(N_list(i),.5))
     disp("++++++++++++++++++++++++++++++++++++++++++++++");
 
 end
