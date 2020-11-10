@@ -5,17 +5,18 @@ samples = 10000; %samples of AN, BN
 % 
 
 valid_confidence = 0;
+epsilon = sqrt((1/(2*N)) * reallog(2/alpha));
 
 % Don't know if I did this right at all :)
 for i=1:samples
-    X = sample_bernoulli(N, .5);
-    mean_X = mean(X);
-    min_X = min(X);
-    epsilon = sqrt((1/(2*N)) * log(2/alpha));
-    A = mean_X - epsilon;
-    B = mean_X + epsilon;
-    disp( min_X + " " + A + " " +  B)
-    if A <= min_X && B>= min_X 
+    p = .5;
+    X = sample_bernoulli(N, p);
+    Xbar = mean(X);
+    %min_X = min(X);
+    %A = mean_X - epsilon;
+    %B = mean_X + epsilon;
+    %disp( min_X + " " + A + " " +  B);
+    if abs(Xbar - p) <= epsilon
         valid_confidence = valid_confidence+1;
     end
 end

@@ -1,18 +1,17 @@
-function [percentages] = project(N, num_samples)
-functs = zeros(10,1);
+function [percentages] = project(num_samples)
+N_list = [ 10, 100, 1000, 10000 ];
+%alpha_list = [.25 .1 .05 .01];
+num_Ns = size(N_list,2);
+percentages = {};
 
-for sample=1:num_samples
-    for i=1:10
-        % Generate the dataset
-        dataset = sample_uniform(N,0,1);
-        true_min = min(dataset);
-        [a, b] = ci(dataset,i);
-        if a <= true_min && b >= true_min
-            functs(i) = functs(i) + 1;
-        end
-    end
+
+for i = 1:num_Ns
+    disp("==============================================")
+    disp(N_list(i))
+    disp("----------------------------------------------")
+    project_test_N(N_list(i),num_samples)
 end
 
-percentages = functs/num_samples;
 
-%disp(percentages);
+end
+
