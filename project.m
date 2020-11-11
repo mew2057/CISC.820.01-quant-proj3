@@ -1,5 +1,5 @@
 function [] = project(num_samples)
-N_list = [ 10, 100, 1000, 10000 ];
+N_list = [ 10, 100, 1000, 10000, 100000 ];
 %alpha_list = [.25 .1 .05 .01];
 num_Ns = size(N_list,2);
 %percentages = {};
@@ -23,7 +23,7 @@ for i = 1:num_Ns
     disp("++++++++++++++++++++++++++++++++++++++++++++++");
 end
 
-disp( " Biased Sample (" + uni_max/2 + "," + uni_max + ")");
+disp( " Bernoulli Sample");
 for i = 1:num_Ns
     N=N_list(i);
     disp("N = " + N+ " Sample = " + num_samples)
@@ -33,7 +33,7 @@ for i = 1:num_Ns
     disp("++++++++++++++++++++++++++++++++++++++++++++++");
 end
 
-disp( " Biased Sample (" + uni_min + "," + uni_max/2 + ")");
+disp( " Normal Sample ");
 for i = 1:num_Ns
     N=N_list(i);
     disp("N = " + N+ " Sample = " + num_samples)

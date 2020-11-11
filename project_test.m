@@ -6,11 +6,11 @@ functs = zeros(10,1);
 for s=1:num_samples
     for i=1:10
         % Generate the dataset
-        dataset = sample(N, sample_type);
-        %sample_uniform(N,uni_min,uni_max);
-        true_min = min(dataset);
+        [dataset, true_mean] = sample(N, sample_type); 
         [a, b] = ci(dataset,i);
-        if a <= true_min && b >= true_min
+        ci_mean = (b - a) / 2;       
+        if abs(true_mean - ci_mean) <= ci_mean-a
+            % a <= true_mean && b >= true_mean
             functs(i) = functs(i) + 1;
         end
     end
