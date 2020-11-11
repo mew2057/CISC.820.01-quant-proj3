@@ -10,15 +10,16 @@ uni_max = 1;
 % norm_sig = 1;
 % norm_mu  = .5;
 
-bern_theta = .95;
+%bern_theta = .95;
 
 
 disp( " Uniform Sample (" + uni_min + "," + uni_max + ")");
 for i = 1:num_Ns
     N=N_list(i);
-    disp("N = " + N+ " Sample = " + num_samples);
+    disp("N = " + N+ " Sample = " + num_samples)
     disp("----------------------------------------------");
-    project_test(num_samples, sample_uniform(N,uni_min,uni_max))
+    project_test(num_samples, N)
+%sample_uniform(N,uni_min,uni_max))
     disp("++++++++++++++++++++++++++++++++++++++++++++++");
 end
 
@@ -32,17 +33,17 @@ end
 %     disp("++++++++++++++++++++++++++++++++++++++++++++++");
 % end
 
-disp("==============================================");
-% Characteristic [0,1]
-disp("Bernoulli Sample (theta=" + bern_theta +")");
-for i = 1:num_Ns
-    N=N_list(i);    
-    disp("N = " + N + " Sample = " + num_samples );
-    disp("----------------------------------------------");
-    project_test(num_samples,sample_bernoulli(N,bern_theta))
-    disp("++++++++++++++++++++++++++++++++++++++++++++++");
-
-end
+% disp("==============================================");
+% % Characteristic [0,1]
+% disp("Bernoulli Sample (theta=" + bern_theta +")");
+% for i = 1:num_Ns
+%     N=N_list(i);    
+%     disp("N = " + N + " Sample = " + num_samples );
+%     disp("----------------------------------------------");
+%     project_test(num_samples,sample_bernoulli(N,bern_theta))
+%     disp("++++++++++++++++++++++++++++++++++++++++++++++");
+% 
+% end
 
 
 end

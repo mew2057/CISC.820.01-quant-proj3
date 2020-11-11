@@ -1,9 +1,12 @@
-function [percentages] = project_test(num_samples, dataset)
+function [percentages] = project_test(num_samples, N)
+uni_min = 0;
+uni_max = 1;
+
 functs = zeros(10,1);
 for sample=1:num_samples
     for i=1:10
         % Generate the dataset
-        %dataset = sample_uniform(N,-1000,1000);
+        dataset = sample_uniform(N,uni_min,uni_max);
         true_min = min(dataset);
         [a, b] = ci(dataset,i);
         if a <= true_min && b >= true_min
