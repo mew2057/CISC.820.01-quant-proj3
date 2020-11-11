@@ -1,4 +1,4 @@
-function [percentages] = project_test_N(N, num_samples, dataset)
+function [percentages] = project_test(num_samples, dataset)
 functs = zeros(10,1);
 for sample=1:num_samples
     for i=1:10
